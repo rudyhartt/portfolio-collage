@@ -20,51 +20,9 @@
   margin-top: calc(var(--paper-intro-height) * -.065);
 }
 
-/* Bring the original works closer together while retaining their staggered flow. */
-@media (min-width: 761px) {
-  .world:not(.world-love) .art-scene { height: 64vw; min-height: 595px; }
-  .world:not(.world-love) .pieces-1 { height: 44vw; min-height: 374px; }
-  .world:not(.world-love) .pieces-2 { height: 51vw; min-height: 467px; }
-  .world:not(.world-love) .pieces-3 { height: 54vw; min-height: 495px; }
-  .world:not(.world-love) .art-piece img { max-height: 36vw; }
-  .world:not(.world-love) .art-piece.portrait img { max-height: 37vw; }
-  .world:not(.world-love) .art-piece.wide img { max-height: 30vw; }
-  .world:not(.world-love) .slot-3,
-  .world:not(.world-love) .slot-4 { --y: 42%; }
-  .world:not(.world-love) .arrangement-1 .slot-2 { --y: 52%; }
-  .world:not(.world-love) .arrangement-1 .slot-3 { --y: 43%; }
-  .world:not(.world-love) .arrangement-2 .slot-3 { --y: 48%; }
-  .world:not(.world-love) .pieces-3 .slot-2 { --y: 30%; }
-  .about { padding-top: 7vw; }
-  .about-details { margin-top: 40px; margin-bottom: 45px; }
-}
-@media (min-width: 1800px) {
-  .world:not(.world-love) .art-scene { height: 1152px; }
-  .world:not(.world-love) .pieces-1 { height: 792px; }
-  .world:not(.world-love) .pieces-2 { height: 918px; }
-  .world:not(.world-love) .pieces-3 { height: 972px; }
-  .world:not(.world-love) .art-piece img { max-height: 648px; }
-  .world:not(.world-love) .art-piece.portrait img { max-height: 666px; }
-  .world:not(.world-love) .art-piece.wide img { max-height: 540px; }
-}
 @media (max-width: 760px) {
   .world-paper .world-intro {
     --paper-intro-height: clamp(620px, 160vw, 900px);
     margin-top: calc(var(--paper-intro-height) * -.06);
   }
-  .world:not(.world-love) .art-scene { height: 182vw; margin-bottom: 6vw; }
-  .world:not(.world-love) .art-piece img { max-height: 76vw; }
-  .world:not(.world-love) .slot-1 { --my: 14%; }
-  .world:not(.world-love) .slot-2 { --my: 40%; }
-  .world:not(.world-love) .slot-3 { --my: 56%; }
-  .world:not(.world-love) .slot-4 { --my: 66%; }
-  .world:not(.world-love) .slot-4 img { max-height: 65vw; }
-  .world:not(.world-love) .pieces-1 { height: 80vw; }
-  .world:not(.world-love) .pieces-2 { height: 106vw; }
-  .world:not(.world-love) .pieces-2 .slot-1 { --my: 30%; }
-  .world:not(.world-love) .pieces-3 { height: 138vw; }
-  .world:not(.world-love) .pieces-3 .slot-2 { --my: 44%; }
-  .world:not(.world-love) .pieces-4 { height: 154vw; }
-  .world:not(.world-love) .pieces-4 .slot-3 { --my: 50%; }
-  .about { padding-top: 60px; }
 }
