@@ -541,6 +541,36 @@ window.PORTFOLIO_PROJECTS = [
     }
   },
   {
+    "id": "editorial",
+    "title": "Editorial explorations",
+    "category": "Visual studies",
+    "subtitle": "Publication, material & typography",
+    "summary": "Publication and typographic studies in a restrained monochrome palette. Quiet layouts and tactile surfaces sit alongside expressive, dimensional lettering.",
+    "images": [
+      {
+        "src": "assets/teaser-4b-background.webp",
+        "thumb": "assets/teaser-4b-background-thumb.webp",
+        "width": 1240,
+        "height": 827,
+        "alt": "Minimal white publication mockups arranged on textured stone surfaces"
+      },
+      {
+        "src": "assets/teaser-4d-1.webp",
+        "thumb": "assets/teaser-4d-1-thumb.webp",
+        "width": 1240,
+        "height": 815,
+        "alt": "Repeating outlined serif lettering on raised white geometric blocks"
+      }
+    ],
+    "cover": {
+      "src": "assets/teaser-4b-background.webp",
+      "thumb": "assets/teaser-4b-background-thumb.webp",
+      "width": 1240,
+      "height": 827,
+      "alt": "Minimal white publication mockups arranged on textured stone surfaces"
+    }
+  },
+  {
     "id": "digital-characters",
     "title": "Digital character studies",
     "category": "Visual studies",
