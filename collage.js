@@ -25,7 +25,7 @@
     section.id = world.id;
     section.dataset.world = world.id;
     section.setAttribute('aria-labelledby',`${world.id}-title`);
-    section.innerHTML = `<div class="world-intro"><img class="world-panorama" src="assets/${world.image}" alt="" loading="lazy" decoding="async"><div class="world-heading"><span class="eyebrow">${world.kicker}</span><h2 id="${world.id}-title">${world.name.replace('\n','<br>')}</h2><p>${world.copy}</p><span class="world-count">${world.projects.length} ${world.projects.length===1?'collection':'collections'} / ${works.length} works</span></div></div>`;
+    section.innerHTML = `<div class="world-intro"><img class="world-panorama" src="assets/${world.image}" alt="" loading="${worldIndex===0?'eager':'lazy'}" fetchpriority="${worldIndex===0?'high':'auto'}" decoding="async"><div class="world-heading"><span class="eyebrow">${world.kicker}</span><h2 id="${world.id}-title">${world.name.replace('\n','<br>')}</h2><p>${world.copy}</p><span class="world-count">${world.projects.length} ${world.projects.length===1?'collection':'collections'} / ${works.length} works</span></div></div>`;
     for(let start=0; start<works.length; start+=5){
       const batch=works.slice(start,start+5);
       const scene=document.createElement('div');

@@ -9,7 +9,7 @@ This repository is separate from `rudyhartt/portfolio`, which serves meet-love.c
 - All 28 collections: 161 still images and 6 films (167 works).
 - Every original work appears in the scrolling collage; films appear as playable project links.
 - Four new cross-collection compositions: Beautiful accidents, After hours, Impossible souvenirs, and The shape of a thought.
-- A generated continuous-world opening artwork, plus the existing source images and panoramas.
+- A compact typographic masthead leading directly into Paper & ink, followed by the existing source images and panoramas.
 - A filterable collection index, exact-image lightbox, keyboard navigation, project deep links, and lazy-loaded images.
 - Responsive layouts and reduced-motion support; no external runtime dependencies.
 
@@ -27,4 +27,4 @@ Click any still image to open it, use arrow keys to browse, and Escape to step b
 
 ## Image provenance
 
-The artist's provided media and existing approved project assets are preserved. `assets/continuous-world.webp` is an AI-assisted composition derived from the existing portfolio panoramas and LOVE reference. The four new interludes are live HTML/CSS compositions of original provided works. LOVE remains an imagined concept; its visuals are not photographs of working hardware. Source attribution and project notes remain in the data and galleries.
+The artist's provided media and existing approved project assets are preserved. `assets/continuous-world.webp` is an unused AI-assisted composition derived from the existing portfolio panoramas and LOVE reference; it is retained as a study and is no longer loaded by the page. The four new interludes are live HTML/CSS compositions of original provided works. LOVE remains an imagined concept; its visuals are not photographs of working hardware. Source attribution and project notes remain in the data and galleries.
