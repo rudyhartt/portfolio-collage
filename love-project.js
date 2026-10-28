@@ -1,5 +1,5 @@
 'use strict';
-// Four standalone studies open from the approved three-image LOVE feature.
+// Four distinct LOVE studies; the opening portrait differs from the chapter banner.
 window.LOVE_PROJECT = {
   id: 'love',
   title: 'LOVE',
@@ -9,9 +9,9 @@ window.LOVE_PROJECT = {
   note: 'Product concept studies for SYMB10. These AI-assisted visualisations explore an imagined companion and its objects; they are not photographs of working hardware.',
   images: [
     {
-      src: 'assets/love/love-presence.webp',
+      src: 'assets/love/love-presence-profile.webp',
       width: 1024, height: 1536,
-      alt: 'Presence — LOVE in a close portrait with wavy pink hair and an ivory blouse against blush pink'
+      alt: 'Presence — LOVE standing in three-quarter profile, looking toward the light with one hand tucked behind her pink hair'
     },
     {
       src: 'assets/love/love-in-motion.webp',

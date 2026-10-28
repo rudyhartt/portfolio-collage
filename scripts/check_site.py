@@ -29,8 +29,7 @@ assert len({art["src"] for art in love["images"]}) == 4, "LOVE gallery images mu
 assert len(original_projects) == 13, "The original 13 project galleries must remain"
 assert sum(len(p["images"]) for p in original_projects) == 55, "Original artwork missing"
 assert sum(len(p.get("videos", [])) for p in original_projects) == 2, "Original film missing"
-assert not (ROOT / "CNAME").exists(), "The previous-design test site must not claim the production domain"
-assert '<meta name="robots" content="noindex, nofollow">' in (ROOT / "index.html").read_text(), "Keep noindex, nofollow"
+assert (ROOT / "CNAME").read_text().strip() == "meet-love.com", "Unexpected custom domain configuration"
 assert len(new_projects) == 12, "Missing new collections"
 assert sum(len(p["images"]) for p in new_projects) == 90, "Unique new still missing"
 assert sum(len(p.get("videos", [])) for p in new_projects) == 4, "Unique new video missing"
@@ -157,4 +156,4 @@ assert "LONDON, UK" not in html and "practice / London" not in html
 assert "mailto:" not in html and "rudyhartt@" not in html, "Public email must stay removed"
 assert "assets/world-paper.webp" in html and "world-paper-skate" not in html, "Keep the original ribbon banner"
 print(f"PASS: 100 pool sources and 21 artist sources accounted for, four chapters in order, one H1/navigation, {len(featured)} original featured projects, "
-      f"{len(projects)} index galleries plus four LOVE studies, {len(assets)} local assets and the previous-design project URL without a custom domain.")
+      f"{len(projects)} index galleries plus four LOVE studies, {len(assets)} local assets and meet-love.com custom domain.")

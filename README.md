@@ -1,62 +1,32 @@
-# Rudy Hartt — Previous portfolio design
+# RUDY HARTT — collage experiment
 
-A responsive portfolio of 27 curated collections, combining the original NewPortfolio archive, the 100-file artwork pool and the additional artist archive. The galleries contain 157 distinct still images, including process fragments, and six films.
+The test portfolio at https://rudyhartt.github.io/portfolio-collage/: one long visual journey through paper and ink, electric spaces, playful objects, sculptural studies and LOVE.
 
-## Site
+This repository, `rudyhartt/portfolio-collage`, hosts the collage experiment for further development. It deliberately has **no CNAME**. Every HTML entry point retains **noindex, nofollow**. The original portfolio design is restored at https://meet-love.com/ in `rudyhartt/portfolio`.
 
-This repository preserves the previous RUDY HARTT portfolio design at https://rudyhartt.github.io/portfolio-collage/. The current continuous-collage portfolio is published at https://meet-love.com/.
+## Content
 
-The portfolio keeps the original visual worlds in sequence: **Paper Riot → Electric Playground → Hyperdream → Afterimage**. Eight featured original projects sit between the first three worlds, under one RUDY HARTT masthead and one main navigation. The hero uses the original twisting graphic ribbon collage, restored before the skateboard edits. The **Cut Through** collage banner and four featured collections connect Paper Riot to Electric Playground, with two more featured collections before Hyperdream. Deeper cutouts run through the artwork and page transitions. The public location label is Worldwide.
+- 27 curated collections: 158 still images and 6 films (164 works).
+- Every retained work appears once in the scrolling collage, including the interludes; films appear as playable project links. Fell and one duplicate pixel-rabbit presentation are omitted from the visible collection.
+- Four new cross-collection compositions: Beautiful accidents, After hours, Impossible souvenirs, and The shape of a thought.
+- A compact typographic masthead leading directly into Paper & ink, followed by the existing source images and panoramas.
+- A filterable collection index, exact-image lightbox, keyboard navigation, project deep links, and lazy-loaded images.
+- Responsive layouts and reduced-motion support; no external runtime dependencies.
 
-The panoramas are AI-assisted collage interpretations of the supplied artwork. Gallery media retains the supplied work, using approved localized-blur copies in four cases. The 100 uploaded pool files resolve to 90 distinct stills and four distinct clips; six exact duplicate pairs are represented once, with every original filename retained in `sourceFiles` metadata.
+## Files
 
-The closing **Afterimage** chapter follows Hyperdream and introduces the final selection with a grayscale collage banner. The supplied artwork retains its original colour in the featured selection and galleries.
+`index.html` is the entry point. `collage.js` assembles the five continuous worlds from the existing data files. `collage.css` controls the composition. `curation.js` assigns unique artworks to the interludes; `interludes.js` and `interludes.css` supply the four original connecting sections. `gallery.js` and `gallery.css` manage the collection index, project galleries and lightbox.
 
-The 21-file `artist.zip` adds four presentation visuals and eight clearly labelled process fragments in **Elsewhere** and **Notes, marks & fragments**. Eight large artwork exports are alternate-resolution copies of compositions already shown, and the movie is an exact duplicate of the existing WAOW!! film; these are represented once. `window.ARTIST_SOURCE_MAP` accounts for all 21 filenames. Transparent process images use neutral display backgrounds without altering their pixels.
+Data loads in this order: `projects.js`, `pool-projects.js`, `artist-projects.js`, `love-project.js`. The old presentation files remain as source history but are not loaded by the current portfolio.
 
-The **LOVE** feature follows the complete index and precedes About. Its light-pink layout retains the three approved feature views — Presence, Objects and Character — with native HTML headings and captions. Opening **Explore LOVE** reveals four new standalone images: Presence, In motion, Objects and A quiet moment. These AI-assisted product concept studies explore a fictional companion and accompanying objects; they are not photographs of working hardware.
+## Preview
 
-A buildless static website with category filtering, deep links to projects, keyboard-accessible artwork viewers, native video playback, an about section and a closing portfolio sign-off. No framework, third-party scripts, tracking, backend or paid service is required.
+Serve this folder using any static server, such as `python -m http.server 8000`. Open `/` for the portfolio, or `/preview.html` for 390px and 768px responsive review frames. GitHub Pages uses the `main` branch and repository root.
 
-GitHub Pages serves the root of `main` at the project-subdirectory URL above. This previous design has no `CNAME`; the custom domain remains attached to `rudyhartt/portfolio`, which now serves the continuous collage. Both sites retain `noindex, nofollow`.
+Click any still image in the collage to open it directly, use arrow keys to browse, and close or press Escape to return to the same place in the collage. Images opened from a collection gallery return to that gallery. Browser Back and Forward retain the direct-image view. The index button and five chapter markers provide shortcuts through the long page.
 
-The original design is preserved on the [V1 branch](https://github.com/rudyhartt/portfolio/tree/V1), at commit [`102b4fec8bdb5e9458d3a804ce076d67b3cb0a80`](https://github.com/rudyhartt/portfolio/tree/102b4fec8bdb5e9458d3a804ce076d67b3cb0a80).
+## Image provenance
 
-## Editing
+The artist's provided media and existing approved project assets are preserved. `assets/continuous-world.webp` is an unused AI-assisted composition derived from the existing portfolio panoramas and LOVE reference; it is retained as a study and is no longer loaded by the page. The four new interludes are live HTML/CSS compositions of original provided works. `assets/love/love-banner-centred.webp` is a new AI-assisted LOVE portrait, composed with her full head around the vertical centre and displayed without a fade. Its prompt is recorded alongside the asset. `love-banner.css` keeps the portrait clear on wide and narrow screens. LOVE remains an imagined concept; its visuals are not photographs of working hardware. Source attribution and project notes remain in the data and galleries.
 
-- `index.html`: four-chapter sequence, featured projects, biography, closing sign-off and metadata.
-- `projects.js`: the original 13 project galleries, preserved.
-- `pool-projects.js`: 12 new curated collections, descriptive captions, source-file mappings and four new films.
-- `artist-projects.js`: two closing collections, featured selections and artist-archive duplicate mapping.
-- `immersive.css`: the original three-world layout and responsive typography.
-- `cut-through.css`: sharper cuts, new collage interlude and featured pool work.
-- `afterimage.css`: the grayscale closing chapter and uncropped featured artwork.
-- `love.css`: the light-pink LOVE feature and responsive three-shot layout.
-- `love-project.js`: LOVE project details and four standalone gallery images.
-- `style.css`: shared base styles, project dialogs and artwork viewer.
-- `app.js`: filters, project dialogs, image viewer and hash navigation.
-- `assets/`: optimised WebP images, H.264 MP4 films and a DejaVu Sans Bold display-font subset (`display.woff`, with `FONT-LICENSE.txt`).
-- `assets/world-{paper,cut-through,electric,hyperdream,afterimage}.webp`: current collage panoramas with responsive variants.
-- `assets/pool/`: web-optimized pool images, thumbnails, films and posters. Four sensitive source images are represented only by their approved blurred derivatives.
-- `assets/artist/`: twelve additional presentation/process images and cover thumbnails, preserving original colour and transparency.
-- `assets/love/approved-study.webp`: the approved LOVE composition used for its three product-shot image windows.
-- `assets/love/love-*.webp`: four new full-frame LOVE studies shown in the project gallery and artwork viewer.
-- `source-assets.csv`: a mapping back to original supplied asset filenames.
-
-To add a project, add an entry to `window.PORTFOLIO_PROJECTS` in `projects.js`, include its assets, and choose an existing filter category. Gallery artwork is displayed without cropping; cover images are cropped for presentation.
-
-For local preview, serve this directory with any static HTTP server, for example `python3 -m http.server 8000`, then open localhost:8000. No build step is needed.
-
-## Source notes
-
-Project groupings and descriptions were prepared from the supplied artwork and professional background documents. Unverified commissions are not presented as client relationships. Studio Ghibli is labelled as an independent concept. Existing brand and character rights remain with their respective owners.
-
-The original ZIP, Pages document and profile/CV PDFs are not published. The biography draws on the professional documents. The public email address and email links have been removed at the artist’s request. Unused institutional logos are excluded from the deployed assets.
-
-## Validation
-
-Run `node --check app.js`, `node --check projects.js`, `node --check pool-projects.js`, `node --check artist-projects.js`, `node --check love-project.js`, and `python3 scripts/check_site.py`. The asset check covers all 100 pool source filenames and all 21 artist-archive entries, four distinct LOVE gallery images, duplicate grouping, the retained catalogue, one H1 and main navigation, chapter order, featured project links, responsive image sources and CSS asset URLs. All local links and asset paths must work within the GitHub Pages project subdirectory.
-
-Before publishing, check desktop and 390px mobile layouts, filters, featured project links, gallery navigation, artwork enlargement, Escape handling, focus restoration and video playback. Invalid project URLs should return safely to the work section. These are verification instructions, not a claim that a particular revision has passed browser review.
-
-Copyright © Rudy Hartt. All rights reserved for original portfolio artwork and content. No blanket licence is granted to third-party brands or characters. The bundled font retains its accompanying licence.
+`assets/love/love-presence-profile.webp` is the distinct first LOVE gallery portrait, generated with the built-in image tool using the established LOVE images as identity and style references. Its final generation prompt is recorded in `assets/love/love-presence-profile-prompt.txt`.
