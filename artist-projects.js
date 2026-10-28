@@ -4,7 +4,7 @@ window.PORTFOLIO_PROJECTS.push(...[
     "title": "Elsewhere",
     "category": "Visual studies",
     "subtitle": "Spaces, characters & imagined interfaces",
-    "summary": "An imagined exhibition, a layered view of an interior, a pixel-art character and an independent app study explore how an idea can inhabit different places. These presentations move between spatial atmosphere, graphic play and the screen.",
+    "summary": "An imagined exhibition, a layered view of an interior and an independent app study explore how an idea can inhabit different places. These presentations move between spatial atmosphere and the screen.",
     "note": "Studio Ghibli interface shown as an independent concept.",
     "images": [
       {
@@ -24,15 +24,6 @@ window.PORTFOLIO_PROJECTS.push(...[
         "alt": "Guitars and translucent colourful rabbit forms inside the RUDY’S space",
         "sourceFiles": [
           "mf-1.jpeg"
-        ]
-      },
-      {
-        "src": "assets/artist/mr-1.webp",
-        "width": 1277,
-        "height": 782,
-        "alt": "Pixel-art rabbit character above YEAH lettering on a cyan and lime gradient",
-        "sourceFiles": [
-          "mr-1.png"
         ]
       },
       {
@@ -170,11 +161,6 @@ window.ARTIST_FEATURED = [
     "Layers of a place."
   ],
   [
-    "artist-elsewhere",
-    "assets/artist/mr-1.webp",
-    "A little character."
-  ],
-  [
     "artist-process",
     "assets/artist/m2-5.webp",
     "Before the finished image."
@@ -231,8 +217,8 @@ window.ARTIST_SOURCE_MAP = {
     "status": "new"
   },
   "0000000mjWq000000000mr-1.png": {
-    "src": "assets/artist/mr-1.webp",
-    "status": "new"
+    "src": "assets/3s-7.webp",
+    "status": "existing"
   },
   "0000000mjWq000000000kR-1.png": {
     "src": "assets/artist/kr-1.webp",

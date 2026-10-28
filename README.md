@@ -6,8 +6,8 @@ This repository is separate from `rudyhartt/portfolio`, which serves meet-love.c
 
 ## Content
 
-- All 28 collections: 161 still images and 6 films (167 works).
-- Every original work appears in the scrolling collage; films appear as playable project links.
+- 27 curated collections: 158 still images and 6 films (164 works).
+- Every retained work appears once in the scrolling collage, including the interludes; films appear as playable project links. Fell and one duplicate pixel-rabbit presentation are omitted from the visible collection.
 - Four new cross-collection compositions: Beautiful accidents, After hours, Impossible souvenirs, and The shape of a thought.
 - A compact typographic masthead leading directly into Paper & ink, followed by the existing source images and panoramas.
 - A filterable collection index, exact-image lightbox, keyboard navigation, project deep links, and lazy-loaded images.
@@ -15,7 +15,7 @@ This repository is separate from `rudyhartt/portfolio`, which serves meet-love.c
 
 ## Files
 
-`index.html` is the entry point. `collage.js` assembles the five continuous worlds from the existing data files. `collage.css` controls the composition. `interludes.js` and `interludes.css` supply the four original connecting sections. `gallery.js` and `gallery.css` manage the collection index, project galleries and lightbox.
+`index.html` is the entry point. `collage.js` assembles the five continuous worlds from the existing data files. `collage.css` controls the composition. `curation.js` assigns unique artworks to the interludes; `interludes.js` and `interludes.css` supply the four original connecting sections. `gallery.js` and `gallery.css` manage the collection index, project galleries and lightbox.
 
 Data loads in this order: `projects.js`, `pool-projects.js`, `artist-projects.js`, `love-project.js`. The old presentation files remain as source history but are not loaded by this experiment.
 
@@ -27,4 +27,4 @@ Click any still image to open it, use arrow keys to browse, and Escape to step b
 
 ## Image provenance
 
-The artist's provided media and existing approved project assets are preserved. `assets/continuous-world.webp` is an unused AI-assisted composition derived from the existing portfolio panoramas and LOVE reference; it is retained as a study and is no longer loaded by the page. The four new interludes are live HTML/CSS compositions of original provided works. LOVE remains an imagined concept; its visuals are not photographs of working hardware. Source attribution and project notes remain in the data and galleries.
+The artist's provided media and existing approved project assets are preserved. `assets/continuous-world.webp` is an unused AI-assisted composition derived from the existing portfolio panoramas and LOVE reference; it is retained as a study and is no longer loaded by the page. The four new interludes are live HTML/CSS compositions of original provided works. `assets/love/love-banner-centred.webp` is a new AI-assisted LOVE portrait, composed with her full head around the vertical centre and displayed without a fade. Its prompt is recorded alongside the asset. `love-banner.css` keeps the portrait clear on wide and narrow screens. LOVE remains an imagined concept; its visuals are not photographs of working hardware. Source attribution and project notes remain in the data and galleries.

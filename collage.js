@@ -1,13 +1,14 @@
 (() => {
   'use strict';
   const projects = [...window.PORTFOLIO_PROJECTS, window.LOVE_PROJECT];
+  const reservedArt = new Set(Object.values(window.COLLAGE_INTERLUDES).flatMap(composition => composition.works.map(([src]) => src)));
   const byId = new Map(projects.map(project => [project.id, project]));
   const worlds = [
-    {id:'paper', name:'Paper & ink.', kicker:'01 / Cut, print, repeat', copy:'A mark on a page. A character on a sleeve. An idea that refuses to stay flat.', image:'world-paper.webp', fragment:'artist/m2-6.webp', interlude:'accidents', projects:['visual-experiments','skateboard-graphics','dreamkid','pool-collage-studies','pool-wearable-graphics','editorial']},
-    {id:'electric', name:'Electric dreams.', kicker:'02 / Step into the image', copy:'Screens, spaces and characters. A little light, a lot of possibility.', image:'world-electric.webp', fragment:'artist/ly-1.webp', interlude:'hours', projects:['rudys','ghibli','piccollage','waow','red-badger','film','digital-characters','pool-character-cast','pool-motion-studies']},
-    {id:'dream', name:'Other possible\nworlds.', kicker:'03 / The ordinary, reimagined', copy:'A familiar shape. An unfamiliar life. Objects with somewhere else to be.', image:'world-hyperdream.webp', fragment:'artist/m2-8.webp', interlude:'souvenirs', projects:['characters','little-worlds','pool-objects-with-personality','pool-creatures-daydreams','pool-pop-fizz','pool-digital-gestures','pool-printed-imaginations']},
-    {id:'sculpture', name:'Forms &\nfeelings.', kicker:'04 / Somewhere between', copy:'Faces become landscapes. Light becomes material. Something imagined begins to feel real.', image:'world-afterimage.webp', fragment:'artist/mb-1.webp', interlude:'thought', projects:['pool-portrait-fragments','pool-future-faces','pool-light-and-form','artist-elsewhere','artist-process']},
-    {id:'love', name:'LOVE.', kicker:'05 / A companion with a story', copy:'Presence, movement, objects and a quiet moment. An imagined future, in soft pink.', image:'love/love-quiet-moment.webp', projects:['love']}
+    {id:'paper', name:'Paper & ink.', kicker:'01 / Cut, print, repeat', copy:'A mark on a page. A character on a sleeve. An idea that refuses to stay flat.', image:'world-paper.webp', interlude:'accidents', projects:['visual-experiments','skateboard-graphics','dreamkid','pool-collage-studies','pool-wearable-graphics']},
+    {id:'electric', name:'Electric dreams.', kicker:'02 / Step into the image', copy:'Screens, spaces and characters. A little light, a lot of possibility.', image:'world-electric.webp', interlude:'hours', projects:['rudys','ghibli','piccollage','waow','red-badger','film','digital-characters','pool-character-cast','pool-motion-studies']},
+    {id:'dream', name:'Other possible\nworlds.', kicker:'03 / The ordinary, reimagined', copy:'A familiar shape. An unfamiliar life. Objects with somewhere else to be.', image:'world-hyperdream.webp', interlude:'souvenirs', projects:['characters','little-worlds','pool-objects-with-personality','pool-creatures-daydreams','pool-pop-fizz','pool-digital-gestures','pool-printed-imaginations']},
+    {id:'sculpture', name:'Forms &\nfeelings.', kicker:'04 / Somewhere between', copy:'Faces become landscapes. Light becomes material. Something imagined begins to feel real.', image:'world-afterimage.webp', interlude:'thought', projects:['pool-portrait-fragments','pool-future-faces','pool-light-and-form','artist-elsewhere','artist-process']},
+    {id:'love', name:'LOVE.', kicker:'05 / A companion with a story', copy:'Presence, movement, objects and a quiet moment. An imagined future, in soft pink.', image:'love/love-banner-centred.webp', projects:['love']}
   ];
   const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const flow = document.querySelector('#work');
@@ -16,22 +17,23 @@
     // Interleave related projects so each composition becomes a conversation between works.
     const queues = world.projects.map(id => {
       const project = byId.get(id);
-      return [...project.images.map((art,index) => ({art,index,project})), ...(project.videos || []).map(art => ({art,project,video:true}))];
+      return [...project.images.map((art,index) => ({art,index,project})), ...(project.videos || []).map(art => ({art,project,video:true}))]
+        .filter(({art}) => !reservedArt.has(art.src));
     });
     const works = [];
     while (queues.some(queue => queue.length)) queues.forEach(queue => {if(queue.length) works.push(queue.shift());});
+    const visibleWorkCount = works.length + (window.COLLAGE_INTERLUDES[world.interlude]?.works.length || 0);
     const section = document.createElement('section');
     section.className = `world world-${world.id}`;
     section.id = world.id;
     section.dataset.world = world.id;
     section.setAttribute('aria-labelledby',`${world.id}-title`);
-    section.innerHTML = `<div class="world-intro"><img class="world-panorama" src="assets/${world.image}" alt="" loading="${worldIndex===0?'eager':'lazy'}" fetchpriority="${worldIndex===0?'high':'auto'}" decoding="async"><div class="world-heading"><span class="eyebrow">${world.kicker}</span><h2 id="${world.id}-title">${world.name.replace('\n','<br>')}</h2><p>${world.copy}</p><span class="world-count">${world.projects.length} ${world.projects.length===1?'collection':'collections'} / ${works.length} works</span></div></div>`;
+    section.innerHTML = `<div class="world-intro"><img class="world-panorama" src="assets/${world.image}" alt="" loading="${worldIndex===0?'eager':'lazy'}" fetchpriority="${worldIndex===0?'high':'auto'}" decoding="async"><div class="world-heading"><span class="eyebrow">${world.kicker}</span><h2 id="${world.id}-title">${world.name.replace('\n','<br>')}</h2><p>${world.copy}</p><span class="world-count">${visibleWorkCount} works in this chapter</span></div></div>`;
     for(let start=0; start<works.length; start+=5){
       const batch=works.slice(start,start+5);
       const scene=document.createElement('div');
       scene.className=`art-scene arrangement-${(start/5 + worldIndex)%3} pieces-${batch.length}`;
       scene.setAttribute('aria-label',`${world.name.replace('\n',' ')} — composition ${start/5+1}`);
-      if (world.fragment && start%15===0) scene.innerHTML=`<img class="seam-fragment" src="assets/${world.fragment}" alt="" loading="lazy" decoding="async">`;
       batch.forEach(({art,index,project,video},slot) => {
         artworkNumber++;
         const ratio=(art.width||16)/(art.height||9);

@@ -1,43 +1,11 @@
 (() => {
   'use strict';
 
-  const projects = new Map((window.PORTFOLIO_PROJECTS || []).map(project => [project.id, project]));
-  const compositions = {
-    accidents: {
-      number: 'I', title: ['Beautiful', 'accidents.'], line: 'A mark becomes a world.',
-      works: [
-        ['artist-process', 3, 'lines'],
-        ['visual-experiments', 0, 'eye'],
-        ['skateboard-graphics', 2, 'decks'],
-        ['artist-process', 4, 'brush']
-      ]
-    },
-    hours: {
-      number: 'II', title: ['After', 'hours.'], line: 'Some ideas come alive when the lights go down.',
-      works: [
-        ['rudys', 10, 'room'],
-        ['artist-elsewhere', 3, 'screens'],
-        ['characters', 2, 'pixel']
-      ]
-    },
-    souvenirs: {
-      number: 'III', title: ['Impossible', 'souvenirs.'], line: 'Little things from places that do not quite exist.',
-      works: [
-        ['pool-objects-with-personality', 0, 'rabbit'],
-        ['characters', 0, 'mug'],
-        ['pool-wearable-graphics', 0, 'jersey'],
-        ['pool-wearable-graphics', 4, 'phone']
-      ]
-    },
-    thought: {
-      number: 'IV', title: ['The shape', 'of a thought.'], line: 'An image, held somewhere between a memory and a material.',
-      works: [
-        ['artist-elsewhere', 0, 'relief'],
-        ['pool-light-and-form', 2, 'portrait'],
-        ['artist-process', 7, 'particles']
-      ]
-    }
-  };
+  const artworkBySource = new Map();
+  (window.PORTFOLIO_PROJECTS || []).forEach(project => {
+    project.images.forEach((artwork, index) => artworkBySource.set(artwork.src, {project, artwork, index}));
+  });
+  const compositions = window.COLLAGE_INTERLUDES;
 
   document.querySelectorAll('[data-interlude]').forEach(slot => {
     const key = slot.dataset.interlude;
@@ -73,10 +41,11 @@
     heading.append(eyebrow, title, description);
     section.append(heading);
 
-    composition.works.forEach(([id, index, role]) => {
-      const project = projects.get(id);
-      const artwork = project?.images?.[index];
-      if (!artwork) return;
+    composition.works.forEach(([src, role]) => {
+      const match = artworkBySource.get(src);
+      if (!match) return;
+      const {project, artwork, index} = match;
+      const id = project.id;
       const link = document.createElement('a');
       link.className = `interlude-art interlude-art-${role}`;
       link.href = `#project/${id}`;
